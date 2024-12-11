@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |spec|
   spec.name             = 'FUI'
-  spec.version          = '0.0.1'
+  spec.version = "0.0.2"
   spec.summary          = 'A convenient library for UI-related processing'
 
 # This description is used to generate tags and improve search results.
