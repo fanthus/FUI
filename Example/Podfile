@@ -1,0 +1,7 @@
+use_frameworks!
+target 'FUI_Tests' do
+  pod 'FUI', :path => '../'
+  
+  pod 'Quick', '~> 2.2.0'
+    pod 'Nimble', '~> 10.0.0'
+end
