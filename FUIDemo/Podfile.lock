@@ -1,0 +1,16 @@
+PODS:
+  - FRCategories (0.0.4)
+
+DEPENDENCIES:
+  - FRCategories
+
+SPEC REPOS:
+  trunk:
+    - FRCategories
+
+SPEC CHECKSUMS:
+  FRCategories: 8aef46e86de7295a00fcb78174b2ec763e775b47
+
+PODFILE CHECKSUM: d7902133ea9dc3ff352cfd766c9474b79f0b1a1c
+
+COCOAPODS: 1.15.2
