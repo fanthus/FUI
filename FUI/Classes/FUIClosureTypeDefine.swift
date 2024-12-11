@@ -7,4 +7,4 @@
 
 import Foundation
 
-typealias FRVoidVoidClosure = ()->Void
+typealias VoidVoidClosure = ()->Void

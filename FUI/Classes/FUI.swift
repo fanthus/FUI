@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 import FRCategories
 
-@objc class FRUI:NSObject {
+@objc public class FUI:NSObject {
     
-    static var defaultFontName:String = "PingFangSC-Regular"
+    public static var defaultFontName:String = "PingFangSC-Regular"
     
     public static func font(of fontName:String?, fontSize:CGFloat, fontWeight:UIFont.Weight) -> UIFont {
         var font:UIFont
@@ -23,7 +23,7 @@ import FRCategories
         return font
     }
     
-    @objc public static func makeLabel(txt:String?="", color:String="ffffff", fontName:String = FRUI.defaultFontName, fontSize:CGFloat = 15, fontWeight:UIFont.Weight = UIFont.Weight.regular, align:NSTextAlignment = .left, superView:UIView?=nil, lineNum:Int=1) -> UILabel {
+    public static func makeLabel(txt:String?="", color:String="ffffff", fontName:String = FUI.defaultFontName, fontSize:CGFloat = 15, fontWeight:UIFont.Weight = UIFont.Weight.regular, align:NSTextAlignment = .left, superView:UIView?=nil, lineNum:Int=1) -> UILabel {
         let lab = UILabel()
         lab.textColor = UIColor.init( color)
         lab.font = font(of: fontName, fontSize: fontSize, fontWeight: fontWeight)
@@ -34,7 +34,7 @@ import FRCategories
         return lab
     }
     
-    public static func makeButton(txt:String="", txtInset:UIEdgeInsets?=nil, color:String="ffffff", fontName:String = FRUI.defaultFontName, fontSize:CGFloat=13, bgColor:String?=nil, img:String? = nil, imgEdgeInsets:UIEdgeInsets? = nil, bgImg:String?=nil, radius:CGFloat? = nil, size:CGSize = .zero, superView:UIView?=nil) -> UIButton {
+    public static func makeButton(txt:String="", txtInset:UIEdgeInsets?=nil, color:String="ffffff", fontName:String = FUI.defaultFontName, fontSize:CGFloat=13, bgColor:String?=nil, img:String? = nil, imgEdgeInsets:UIEdgeInsets? = nil, bgImg:String?=nil, radius:CGFloat? = nil, size:CGSize = .zero, superView:UIView?=nil) -> UIButton {
         let btn = UIButton(type: .custom)
         btn.setTitle(txt, for: UIControl.State.normal)
         if let ttxtInset = txtInset { btn.titleEdgeInsets = ttxtInset }
@@ -86,7 +86,7 @@ import FRCategories
         return uiview
     }
     
-    public static func makeTextView(frame:CGRect = .zero, bgColor:String="00000000", text:String = "", txtColor:String = "ffffff", fontName:String = FRUI.defaultFontName, fontSize:CGFloat, fontWeight:UIFont.Weight = UIFont.Weight.regular, superView:UIView? = nil) -> UITextView {
+    public static func makeTextView(frame:CGRect = .zero, bgColor:String="00000000", text:String = "", txtColor:String = "ffffff", fontName:String = FUI.defaultFontName, fontSize:CGFloat, fontWeight:UIFont.Weight = UIFont.Weight.regular, superView:UIView? = nil) -> UITextView {
         var textView = UITextView.init(frame: frame)
         textView.font = font(of: fontName, fontSize: fontSize, fontWeight: fontWeight)
         textView.backgroundColor = UIColor.init( bgColor)
@@ -132,7 +132,7 @@ import FRCategories
     }
    
     
-    @objc static func showAlertController(vc:UIViewController, title:String = "", msg:String = "", cancelTitle:String = "Cancel", cancelClosure:@escaping FRVoidVoidClosure, okTitle:String = "OK", okClosure:@escaping FRVoidVoidClosure) {
+    @objc static func showAlertController(vc:UIViewController, title:String = "", msg:String = "", cancelTitle:String = "Cancel", cancelClosure:@escaping VoidVoidClosure, okTitle:String = "OK", okClosure:@escaping VoidVoidClosure) {
         let alertCtrl = UIAlertController.init(title: title, message: msg, preferredStyle: .alert)
         alertCtrl.addAction(UIAlertAction(title: okTitle, style: .cancel, handler: { _ in
             okClosure()
@@ -145,10 +145,10 @@ import FRCategories
     
 }
 
-extension FRUI {
+public extension FUI {
     
     
-    public static func addSubview<T:UIView>(_ subView:T, superView:UIView) -> T {
+    static func addSubview<T:UIView>(_ subView:T, superView:UIView) -> T {
         superView.addSubview(subView)
         return subView
     }
@@ -161,14 +161,14 @@ extension FRUI {
     }
     
     /// 移除给定视图的所有子视图
-    public static func removeSubviews(_ superView:UIView) {
+    static func removeSubviews(_ superView:UIView) {
         superView.subviews.forEach { subview in
             subview.removeFromSuperview()
         }
     }
     
     /// 移除给定类型的子视图
-    public static func removeSubviews<T>(_ superView:UIView, type:T.Type) {
+    static func removeSubviews<T>(_ superView:UIView, type:T.Type) {
         for subview in superView.subviews where subview is T {
             subview.removeFromSuperview()
         }
