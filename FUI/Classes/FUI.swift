@@ -110,7 +110,7 @@ import FRCategories
                 view.layer.borderWidth = borderWidth
             }
             if let color = borderColor {
-                view.layer.borderColor = UIColor(color).cgColor
+                view.layer.borderColor = UIColor(color)?.cgColor
             }
         }
     }

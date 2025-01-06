@@ -6,6 +6,7 @@ target 'FUIDemo' do
   use_frameworks!
 
   # Pods for FUIDemo
-  pod 'FRCategories'
+  pod 'FRCategories', '0.0.6'
+  pod 'FRCategories', '0.0.6'
 
 end
